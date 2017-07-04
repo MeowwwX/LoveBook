@@ -19,12 +19,12 @@
 			<result name="error">/username_exist.jsp</result>
 			<result name="input">/repsw_error.jsp</result>
 		</action>
-		<action name="Login" class="koginAction">
+		<action name="Login" class="loginAction">
 			<result name="success">/index.jsp</result>
 			<result name="input">/psw_error.jsp</result>
 		</action>
 		<action name="getData" class="getDataAction">
-			<result name="success">/firstPage.jsp</result>
+			<result name="success">/profile.jsp</result>
 		</action>
 		<action name="modifyProfile" class="modifyProfileAction">
 			<result name="success">/profile.jsp</result>
