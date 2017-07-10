@@ -9,6 +9,12 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
 	public int save(User u){
 		return (Integer) getHibernateTemplate().save(u);
 	}
+	public void delete(User u){
+		getHibernateTemplate().delete(u);
+	}
+	public void update(User u){
+		getHibernateTemplate().merge(u);
+	}
 	public User getUserByUsername(String username){
 		@SuppressWarnings("unchecked")
 		List<User> users=(List<User>) getHibernateTemplate().find(

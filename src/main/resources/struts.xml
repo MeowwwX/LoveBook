@@ -29,6 +29,8 @@
 		<action name="modifyProfile" class="modifyProfileAction">
 			<result name="success">/profile.jsp</result>
 		</action>
-		
+		<action name="publishBook" class="publishBookAction">
+			<result name="success">/index.jsp</result>
+		</action>
 	</package>
 </struts>

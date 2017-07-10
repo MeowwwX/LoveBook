@@ -2,13 +2,15 @@ package model;
 
 public class Book{
 	private int id;
+	private int owner;
 	private String title;
 	private String author;
 	private String publisher;
 	private String description;
 	private int status;
 	public Book(){};
-	public Book(String title,String author,String publisher,String description){
+	public Book(int owner,String title,String author,String publisher,String description){
+		this.owner=owner;
 		this.title=title;
 		this.author=author;
 		this.publisher=publisher;
@@ -20,6 +22,12 @@ public class Book{
 	}
 	public void setId(int id){
 		this.id=id;
+	}
+	public int getOwner(){
+		return owner;
+	}
+	public void setOwner(int owner){
+		this.owner=owner;
 	}
 	public String getTitle(){
 		return title;
