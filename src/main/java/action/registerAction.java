@@ -9,7 +9,6 @@ public class registerAction extends BaseAction{
 	private String username;
 	private String password;
 	private String password_rep;
-	private String gender;
 	public void setUserService(UserService userService){
 		this.userService=userService;
 	}
@@ -31,17 +30,9 @@ public class registerAction extends BaseAction{
 	public void setPassword_rep(String password_rep){
 		this.password_rep=password_rep;
 	}
-	public String getGender(){
-		return gender;
-	}
-	public void setGender(String gender){
-		this.gender=gender;
-	}
 	public String execute() throws Exception{
 		if(!password.equals(password_rep)) return INPUT;
-		int g=0;
-		if(gender.equals("male")) g=1;
-		User u=new User(username,password,g);
+		User u=new User(username,password);
 		int uid=userService.addUser(u);
 		if(uid!=0){
 			response().addCookie(userService.newCookie(uid));

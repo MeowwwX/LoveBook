@@ -24,7 +24,7 @@
 			<list>
 				<value>model/Book.hbm.xml</value>
 				<value>model/User.hbm.xml</value>
-				<value>model/Comment.hbm.xml</value>
+				<!-- value>model/Comment.hbm.xml</value -->
 			</list>
 		</property>
 		<!-- Hibernate SessionFactory -->
@@ -45,9 +45,9 @@
 	<bean id="userDao" class="dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<bean id="commentDao" class="dao.impl.CommentDaoImpl">
+	<!-- bean id="commentDao" class="dao.impl.CommentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	</bean -->
 
 	<!-- Service -->
 	<!-- 
@@ -59,15 +59,15 @@
 		<property name="cartitemDao" ref="cartitemDao"></property>
 	</bean>
  	-->
-	<bean id="bookService" class="service.impl.bookServiceImpl">
+	<bean id="bookService" class="service.impl.BookServiceImpl">
 		<property name="bookDao" ref="bookDao"></property>
 	</bean>
-	<bean id="userService" class="service.impl.userServiceImpl">
+	<bean id="userService" class="service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
-	<bean id="commentService" class="service.impl.commentServiceImpl">
+	<!-- bean id="commentService" class="service.impl.CommentServiceImpl">
 		<property name="commentDao" ref="commentDao"></property>
-	</bean>
+	</bean -->
 	
 	<!-- HibernateTransactionManager -->
 	<bean id="transactionManager"
@@ -94,8 +94,8 @@
 		<aop:pointcut id="userPointcut" expression="bean(userService)" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="userPointcut" />
 	</aop:config>
-	<aop:config>
+	<!-- aop:config>
 		<aop:pointcut id="commentPointcut" expression="bean(commentService)" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="commentPointcut" />
-	</aop:config>
+	</aop:config -->
 </beans>

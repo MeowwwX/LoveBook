@@ -10,10 +10,10 @@ public class User{
 	private String bio;
 	private int isAdmin;
 	public User(){};
-	public User(String username,String password,int gender){
+	public User(String username,String password){
 		this.username=username;
 		this.password=password;
-		this.gender=gender;
+		this.gender=1;
 		this.mail="";
 		this.phone="";
 		this.bio="";

@@ -19,6 +19,9 @@ public class loginAction extends BaseAction{
 	public String getPassword(){
 		return password;
 	}
+	public void setPassword(String password){
+		this.password=password;
+	}
 	public String execute() throws Exception{
 		int uid=userService.loginCheck(username,password);
 		if(uid!=0){

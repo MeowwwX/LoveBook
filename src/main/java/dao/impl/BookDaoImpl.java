@@ -18,7 +18,7 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao{
 	public List<Book> getAllBooks() {
 		@SuppressWarnings("unchecked")
 		List<Book> books = (List<Book>) getHibernateTemplate()
-				.find("from book");
+				.find("from Book");
 		return books;
 	}
 	public Book getBookById(int id){
@@ -28,4 +28,6 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao{
 		Book book = books.size() > 0 ? books.get(0) : null;
 		return book;
 	}
+	public List<Book> getBookByKeyWord(int catalog,String title,String author,String publisher);
+	//catalog==0 means all catalogs;
 }

@@ -7,29 +7,25 @@
 	<constant name="struts.i18n.encoding" value="utf-8" />
 	<constant name="struts.devMode" value="true" />
 	<package name="process" extends="struts-default">
-		<!-- Example
-		<action name="userRegister" class="action.userRegisterAction">
-			<result name="success">/index.jsp</result>
-			<result name="error">/username_exist.jsp</result>
-			<result name="input">/password_error.jsp</result>
-		</action>
-		-->
-		<action name="Register" class="registerAction">
+		<action name="userRegister" class="action.registerAction">
 			<result name="success">/index.jsp</result>
 			<result name="error">/username_exist.jsp</result>
 			<result name="input">/repsw_error.jsp</result>
 		</action>
-		<action name="Login" class="loginAction">
+		<action name="userLogin" class="action.loginAction">
 			<result name="success">/index.jsp</result>
 			<result name="input">/psw_error.jsp</result>
 		</action>
-		<action name="getData" class="getDataAction">
+		<action name="quitLogin" class="action.quitLoginAction">
+			<result name="success">/index.jsp</result>
+		</action>
+		<action name="getData" class="action.getDataAction">
+			<result name="success">/firstPage.jsp</result>
+		</action>
+		<action name="modifyProfile" class="action.modifyProfileAction">
 			<result name="success">/profile.jsp</result>
 		</action>
-		<action name="modifyProfile" class="modifyProfileAction">
-			<result name="success">/profile.jsp</result>
-		</action>
-		<action name="publishBook" class="publishBookAction">
+		<action name="publishBook" class="action.publishBookAction">
 			<result name="success">/index.jsp</result>
 		</action>
 	</package>
