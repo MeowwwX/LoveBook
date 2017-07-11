@@ -28,6 +28,8 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao{
 		Book book = books.size() > 0 ? books.get(0) : null;
 		return book;
 	}
-	public List<Book> getBookByKeyWord(int catalog,String title,String author,String publisher);
+	public List<Book> getBookByKeyWord(int catalog,String title,String author,String publisher){
+		return getAllBooks();
+	}
 	//catalog==0 means all catalogs;
 }

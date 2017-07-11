@@ -6,6 +6,6 @@
 	<title>LoveBook图书分享交流平台</title>
 </head>
 <body>
-	<%response.sendRedirect("getData"); %>
+	<%response.sendRedirect("getData"); %>s
 </body>
 </html>
