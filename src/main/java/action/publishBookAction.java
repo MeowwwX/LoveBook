@@ -6,7 +6,7 @@ import service.BookService;
 public class publishBookAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 	private BookService bookService;
-	private String userid;
+	private int userid;
 	private String category;
 	private String title;
 	private String author;
@@ -15,10 +15,10 @@ public class publishBookAction extends BaseAction{
 	public void setBookService(BookService bookService){
 		this.bookService=bookService;
 	}
-	public String getUserid(){
+	public int getUserid(){
 		return userid;
 	}
-	public void setUserid(String userid){
+	public void setUserid(int userid){
 		this.userid=userid;
 	}
 	public String getCategory(){
@@ -52,7 +52,7 @@ public class publishBookAction extends BaseAction{
 		this.description=description;
 	}
 	public String execute() throws Exception{
-		Book b=new Book(Integer.valueOf(userid),bookService.transCategory(category),title,author,publisher,description);
+		Book b=new Book(userid,bookService.transCategory(category),title,author,publisher,description);
 		bookService.addBook(b);
 		return SUCCESS;
 	}
