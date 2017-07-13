@@ -1,7 +1,5 @@
 package action;
 
-import java.util.List;
-import model.User;
 import service.UserService;
 
 public class modifyProfileAction extends BaseAction{
@@ -9,6 +7,7 @@ public class modifyProfileAction extends BaseAction{
 	private UserService userService;
 	String uid;
 	String password;
+	String password_rep;
 	String gender;
 	String mail;
 	String phone;
@@ -27,6 +26,12 @@ public class modifyProfileAction extends BaseAction{
 	}
 	public void setPassword(String password){
 		this.password=password;
+	}
+	public String getPassword_rep(){
+		return password_rep;
+	}
+	public void setPassword_rep(String password_rep){
+		this.password_rep=password_rep;
 	}
 	public String getGender(){
 		return gender;
@@ -54,15 +59,9 @@ public class modifyProfileAction extends BaseAction{
 	}
 	public String execute() throws Exception{
 		int userid=Integer.valueOf(uid);
-		User u=userService.getUserById(userid);
-		u.setPassword(password);
-		if(gender.equals("male")) u.setGender(1);
-		else u.setGender(0);
-		u.setMail(mail);
-		u.setPhone(phone);
-		u.setBio(bio);
-		List<User> users=userService.getAllUsers();
-		request().setAttribute("users",users);
-		return SUCCESS;
+		int g=1;
+		if(gender.equals("female")) g=0;
+		if(userService.modifyProfile(userid,password,password_rep,g,mail,phone,bio)) return SUCCESS;
+		else return INPUT;
 	}
 }

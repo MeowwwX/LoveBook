@@ -10,7 +10,7 @@ public class getDataAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
 	private BookService bookService;
-	private String catalog;
+	private String category;
 	private String title;
 	private String author;
 	private String publisher;
@@ -20,11 +20,11 @@ public class getDataAction extends BaseAction{
 	public void setBookService(BookService bookService){
 		this.bookService=bookService;
 	}
-	public String getCatalog(){
-		return catalog;
+	public String getCategory(){
+		return category;
 	}
-	public void setCatalog(String catalog){
-		this.catalog=catalog;
+	public void setCategory(String category){
+		this.category=category;
 	}
 	public String getTitle(){
 		return title;
@@ -48,8 +48,8 @@ public class getDataAction extends BaseAction{
 		List<User> users=userService.getAllUsers();
 		request().setAttribute("users",users);
 		List<Book> books;
-		if(catalog==null) books=bookService.getAllBooks();
-		else books=bookService.searchBook(bookService.transCatalog(catalog),title,author,publisher);
+		if(category==null) books=bookService.getAllBooks();
+		else books=bookService.searchBook(bookService.transCategory(category),title,author,publisher);
 		request().setAttribute("books",books);
 		return SUCCESS;
 	}

@@ -10,5 +10,5 @@ public interface BookDao{
 	public void update(Book b);
 	public List<Book> getAllBooks();
 	public Book getBookById(int id);
-	public List<Book> getBookByKeyWord(int catalog,String title,String author,String publisher);
+	public List<Book> getBookByKeyWord(int category,String title,String author,String publisher);
 }

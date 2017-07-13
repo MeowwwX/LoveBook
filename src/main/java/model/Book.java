@@ -3,16 +3,16 @@ package model;
 public class Book{
 	private int id;
 	private int owner;
-	private int catalog;
+	private int category;
 	private String title;
 	private String author;
 	private String publisher;
 	private String description;
 	private int status;
 	public Book(){};
-	public Book(int owner,int catalog,String title,String author,String publisher,String description){
+	public Book(int owner,int category,String title,String author,String publisher,String description){
 		this.owner=owner;
-		this.catalog=catalog;
+		this.category=category;
 		this.title=title;
 		this.author=author;
 		this.publisher=publisher;
@@ -31,11 +31,11 @@ public class Book{
 	public void setOwner(int owner){
 		this.owner=owner;
 	}
-	public int getCatalog(){
-		return catalog;
+	public int getCategory(){
+		return category;
 	}
-	public void setCatalog(int catalog){
-		this.catalog=catalog;
+	public void setCategory(int category){
+		this.category=category;
 	}
 	public String getTitle(){
 		return title;

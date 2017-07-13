@@ -16,11 +16,11 @@ public class BookServiceImpl implements BookService{
 	public int addBook(Book b){
 		return bookDao.save(b);
 	}
-	public List<Book> searchBook(int catalog,String title,String author,String publisher){
-		return bookDao.getBookByKeyWord(catalog,title,author,publisher);
+	public List<Book> searchBook(int category,String title,String author,String publisher){
+		return bookDao.getBookByKeyWord(category,title,author,publisher);
 	}
-	public int transCatalog(String catalog){
-		if(catalog.equals("Example")) return 1;
+	public int transCategory(String category){
+		if(category.equals("Example")) return 1;
 		// 待增加分类
 		return 0;
 	}

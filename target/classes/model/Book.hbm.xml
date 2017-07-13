@@ -11,6 +11,9 @@
 		<property name="owner" type="int">
 			<column name="owner" />
 		</property>
+		<property name="category" type="int">
+			<column name="category" />
+		</property>
 		<property name="title" type="java.lang.String">
 			<column name="title" />
 		</property>

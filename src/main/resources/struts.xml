@@ -23,7 +23,8 @@
 			<result name="success">/firstPage.jsp</result>
 		</action>
 		<action name="modifyProfile" class="action.modifyProfileAction">
-			<result name="success">/profile.jsp</result>
+			<result name="success">/index.jsp</result>
+			<result name="input">/repsw_error.jsp</result>
 		</action>
 		<action name="publishBook" class="action.publishBookAction">
 			<result name="success">/index.jsp</result>

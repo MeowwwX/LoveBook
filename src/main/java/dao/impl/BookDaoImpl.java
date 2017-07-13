@@ -24,12 +24,26 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao{
 	public Book getBookById(int id){
 		@SuppressWarnings("unchecked")
 		List<Book> books = (List<Book>) getHibernateTemplate().find(
-				"from Book as u where u.id=?", id);
+				"from Book as b where b.id=?", id);
 		Book book = books.size() > 0 ? books.get(0) : null;
 		return book;
 	}
-	public List<Book> getBookByKeyWord(int catalog,String title,String author,String publisher){
-		return getAllBooks();
+	public List<Book> getBookByKeyWord(int category,String title,String author,String publisher){
+		StringBuilder query=new StringBuilder("from Book as b where");
+		if(!title.equals("")) query.append(" b.title like %"+title+"%");
+		if(!author.equals("")) query.append(" b.author="+author);
+		if(!publisher.equals("")) query.append(" b.publisher="+publisher);
+		if(category!=0){
+			query.append(" b.category=?");
+			@SuppressWarnings("unchecked")
+			List<Book> books=(List<Book>)getHibernateTemplate().find(query.toString(),category);
+			return books;
+		}else{
+			if(query.toString().equals("from Book as b where")) return getAllBooks();
+			@SuppressWarnings("unchecked")
+			List<Book> books=(List<Book>)getHibernateTemplate().find(query.toString());
+			return books;
+		}
 	}
-	//catalog==0 means all catalogs;
+	//Category==0 means all categories;
 }
