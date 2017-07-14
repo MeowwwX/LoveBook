@@ -100,5 +100,16 @@
  		publisher:<input type="text" name="publisher" value=""><br/>
  		<input type="submit" value="搜索">
  	</form>
+ 	<h3>Test of borrowBook</h3>
+ 	<form action="borrowBook" method="post">
+ 		<input type="hidden" name="userid" value="<%=userid %>"><br/>
+ 		<input type="text" name="bookid" value=""><br/> 	<!-- 实际使用时为hidden value为当前书目id  -->
+ 		<input type="submit" value="提交">
+ 	</form>
+ 	<h3>Test of returnBook</h3>
+ 	<form action="returnBook" method="post">
+ 		<input type="text" name="bookid" value=""><br/>     <!-- 实际使用时为hidden value为当前书目id  -->
+ 		<input type="submit" value="提交">
+ 	</form>
 </body>
 </html>

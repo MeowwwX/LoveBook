@@ -13,6 +13,9 @@ public class BookServiceImpl implements BookService{
 	public List<Book> getAllBooks(){
 		return bookDao.getAllBooks();
 	}
+	public Book getBookById(int id){
+		return bookDao.getBookById(id);
+	}
 	public int addBook(Book b){
 		return bookDao.save(b);
 	}
@@ -23,5 +26,18 @@ public class BookServiceImpl implements BookService{
 		if(category.equals("Example")) return 1;
 		// 待增加分类
 		return 0;
+	}
+	public int borrowBook(int bookid,int userid){
+		Book b=bookDao.getBookById(bookid);
+		if(b.getStatus()!=0) return 0;
+		b.setStatus(userid);
+		bookDao.update(b);
+		return 1;
+	}
+	@Override
+	public void returnBook(int id) {
+		Book b=bookDao.getBookById(id);
+		b.setStatus(0);
+		bookDao.update(b);
 	}
 }

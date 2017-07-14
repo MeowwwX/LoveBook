@@ -29,5 +29,12 @@
 		<action name="publishBook" class="action.publishBookAction">
 			<result name="success">/index.jsp</result>
 		</action>
+		<action name="borrowBook" class="action.borrowBookAction">
+			<result name="success">/index.jsp</result>
+			<result name="error">/bookBorrowed.jsp</result>
+		</action>
+		<action name="returnBook" class="action.returnBookAction">
+			<result name="success">/index.jsp</result>
+		</action>
 	</package>
 </struts>
