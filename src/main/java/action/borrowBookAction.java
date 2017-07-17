@@ -1,6 +1,5 @@
 package action;
 
-import model.Book;
 import service.BookService;
 
 public class borrowBookAction extends BaseAction{
