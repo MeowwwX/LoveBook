@@ -1,28 +1,30 @@
 		function login(){
 			document.getElementById("register").setAttribute("hidden",true);
 			document.getElementById("addbook").setAttribute("hidden",true);
-			document.getElementById("modbook").setAttribute("hidden",true);
-			document.getElementById("delbook").setAttribute("hidden",true);
+			document.getElementById("search").setAttribute("hidden",true);
 			document.getElementById("login").removeAttribute("hidden");
 		}
 		function register(){
 			document.getElementById("login").setAttribute("hidden",true);
 			document.getElementById("addbook").setAttribute("hidden",true);
-			document.getElementById("modbook").setAttribute("hidden",true);
-			document.getElementById("delbook").setAttribute("hidden",true);
+			document.getElementById("search").setAttribute("hidden",true);
 			document.getElementById("register").removeAttribute("hidden");
 		}
-		function addbook(){
+		function publish(){
 			document.getElementById("register").setAttribute("hidden",true);
 			document.getElementById("login").setAttribute("hidden",true);
+			document.getElementById("search").setAttribute("hidden",true);
 			document.getElementById("addbook").removeAttribute("hidden");
-			document.getElementById("modbook").removeAttribute("hidden");
-			document.getElementById("delbook").removeAttribute("hidden");
+		}
+		function sch(){
+			document.getElementById("register").setAttribute("hidden",true);
+			document.getElementById("login").setAttribute("hidden",true);
+			document.getElementById("addbook").setAttribute("hidden",true);
+			document.getElementById("search").removeAttribute("hidden");
 		}
 		function remove(){
 			document.getElementById("register").setAttribute("hidden",true);
 			document.getElementById("login").setAttribute("hidden",true);
 			document.getElementById("addbook").setAttribute("hidden",true);
-			document.getElementById("modbook").setAttribute("hidden",true);
-			document.getElementById("delbook").setAttribute("hidden",true);
+			document.getElementById("search").setAttribute("hidden",true);
 		}

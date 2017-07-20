@@ -6,7 +6,7 @@
 <title>网上书店</title>
 
 <%
-	response.sendRedirect("getData");
+	response.sendRedirect("getCart");
 %>
 
 </head>

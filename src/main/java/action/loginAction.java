@@ -28,6 +28,8 @@ public class loginAction extends BaseAction{
 			response().addCookie(userService.newCookie(uid));
 			return SUCCESS;
 		}
-		return INPUT;
+		String err="用户名或密码错误！";
+		request().setAttribute("err",err);
+		return ERROR;
 	}
 }

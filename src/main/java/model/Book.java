@@ -67,4 +67,12 @@ public class Book{
 	public void setStatus(int status){
 		this.status=status;
 	}
+	public String transCategory(){
+		if(category==1) return "Example";
+		return "Unknown";
+	}
+	public String transStatus(){
+		if(status==0) return "未借出";
+		return "已借出";
+	}
 }

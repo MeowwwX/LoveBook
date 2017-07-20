@@ -23,7 +23,11 @@ public class borrowBookAction extends BaseAction{
 		this.userid=userid;
 	}
 	public String execute() throws Exception{
-		if(bookService.borrowBook(bookid,userid)==0) return ERROR;
+		if(bookService.borrowBook(bookid,userid)==0){
+			String err="书本已借出！！";
+			request().setAttribute("err",err);
+			return ERROR;
+		}
 		return SUCCESS;
 	}
 }

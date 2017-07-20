@@ -1,115 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page import="model.User" %>
-<%@ page import="model.Book" %>
-<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>LoveBook图书分享交流平台</title>
+	<%String path = request.getContextPath();%>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="<%=path%>/img/ico.ico" />
+	<link rel="stylesheet" type="text/css" href="<%=path%>/css/style.css" />
+	<title>网上书店</title>
+	<script src="<%=path%>/js/top.js"></script>
 </head>
-<body>
-	<%	
-	ArrayList<User> userlist = new ArrayList<User>();
-	if(request.getAttribute("users")!=null){
-		userlist=(ArrayList<User>)request.getAttribute("users");
-	}
-	Cookie[] cookies=null;
-	cookies=request.getCookies();
-	String username="";
-	User user=new User("","");
-	int admin=0;
-	int userid=0;
-	if(cookies!=null){
-		for(int i=0;i<cookies.length;i++)
-			if(cookies[i].getName().equals("uid")){
-				userid=Integer.valueOf(cookies[i].getValue());
-				for(int j=0;j<userlist.size();j++){
-					User u=userlist.get(j);
-					if(u.getId()==userid){
-						username=u.getUsername();
-						admin=u.getIsAdmin();
-						user=u;
-					}
-				}
-				if(username.equals("")){
-					cookies[i].setMaxAge(0);
-					response.addCookie(cookies[i]);
-				}
-			}
-	}
-	if(!username.equals("")) out.println("<p>logged in as "+username+".</p>");
-	else out.println("<p>not logged in.</p>");
-	ArrayList<Book> books = new ArrayList<Book>();
-	if(request.getAttribute("books")!=null){
-		books=(ArrayList<Book>)request.getAttribute("books");
-	}
- %>
- 	<p><%=books.size() %> books found</p>
- 	<h3>Test of login</h3>
- 	<form action="userLogin" method="post">
- 		username:<input type="text" name="username" value=""><br/>
- 		password:<input type="password" name="password" value=""><br/>
- 		<input type="submit" name="登录">
- 	</form>
- 	<h3>Test of register</h3>
- 	<form action="userRegister" method="post">
- 		username:<input type="text" name="username" value=""><br/>
- 		password:<input type="password" name="password" value=""><br/>
- 		repeat:<input type="password" name="password_rep" value=""><br/>
- 		<input type="submit" name="登录">
- 	</form>
- 	<h3>Test of quitLogin</h3>
- 	<a href="quitLogin">退出登录</a>
- 	<h3>Test of publishBook</h3>
- 	<form action="publishBook" method="post">
- 		<input type="hidden" name="userid" value="<%=userid %>"><br/>
- 		<select name="category">
- 			<option value="Example">Example</option>
- 		</select><br/>
- 		title:<input type="text" name="title" value=""><br/>
- 		author:<input type="text" name="author" value=""><br/>
- 		publisher:<input type="text" name="publisher" value=""><br/>
- 		description:<input type="text" name="description" value=""><br/>
- 		<input type="submit" value="提交">
- 	</form>
- 	<h3>Test of modifyProfile</h3>
- 	<form action="modifyProfile" method="post">
- 		<input type="hidden" name="uid" value="<%=userid %>"><br/>
- 		<input type="password" name="password" value=""><br/>
- 		<input type="password" name="password_rep" value=""><br/>
- 		<select name="gender">
- 			<option value="male">male</option>
- 			<option value="female"
- 			<% if(user.getGender()==0) out.println("selected=\"selected\""); %>
- 			>female</option>
- 		</select><br/>
- 		<input type="text" name="mail" value="<%=user.getMail() %>"><br/>
- 		<input type="text" name="phone" value="<%=user.getPhone() %>"><br/>
- 		<input type="text" name="bio" value="<%=user.getBio() %>"><br/>
- 		<input type="submit" value="提交">
- 	</form>
- 	<h3>Test of searchBook</h3>
- 	<form action="getData" method="post">
- 		category:<select name="category">
- 			<option value="All">All</option>
- 			<option value="Example">Example</option>
- 		</select><br/>
- 		title:<input type="text" name="title" value=""><br/>
- 		author:<input type="text" name="author" value=""><br/>
- 		publisher:<input type="text" name="publisher" value=""><br/>
- 		<input type="submit" value="搜索">
- 	</form>
- 	<h3>Test of borrowBook</h3>
- 	<form action="borrowBook" method="post">
- 		<input type="hidden" name="userid" value="<%=userid %>"><br/>
- 		<input type="text" name="bookid" value=""><br/> 	<!-- 实际使用时为hidden value为当前书目id  -->
- 		<input type="submit" value="提交">
- 	</form>
- 	<h3>Test of returnBook</h3>
- 	<form action="returnBook" method="post">
- 		<input type="text" name="bookid" value=""><br/>     <!-- 实际使用时为hidden value为当前书目id  -->
- 		<input type="submit" value="提交">
- 	</form>
-</body>
+<body style="background-image: url(<%=path%>/img/bg.png)">
+	<div id="title">
+		我的网上书店
+		<%@ include file="judgeLogin.jsp"%>		
+		<a href="" onclick="sch();return false;">搜索</a>
+		<a href="" onclick="publish();return false">发布书籍</a>
+	</div>
+	<div class="form">
+		<form action="userLogin" method="post" id="login" hidden=true autocomplete=off>
+			用户名：<input type="text" name="username" value=""><br/>
+			密码：<input type="password" name="password"><br/>
+			<input type="submit" onclick="remove();" value="登录">
+			<button onclick="remove();return false;">取消</button> 
+		</form>
+		<form action="userRegister" method="post" id="register" hidden=true autocomplete=off>
+			用户名：<input type="text" name="username" value=""><br/>
+			密码：<input type="password" name="password"><br/>
+			确认密码：<input type="password" name="password_rep"><br/>
+			<input type="submit" onclick="remove();" value="注册">
+			<button onclick="remove();return false;">取消</button>
+		</form>
+		<form action="getData" method="post" id="search" hidden=true autocomplete=off>
+			类型：<select name="category">
+				<option value="All">All</option>
+				<option value="Example">Example</option>
+			</select><br/>
+			书名：<input type="text" name="title" value=""><br/>
+			作者：<input type="text" name="author" value=""><br/>
+			出版社：<input type="text" name="publisher" value=""><br/>
+			<input type="submit" onclick="remove();" value="搜索"> 
+			<button onclick="remove();return false;">取消</button>
+		</form>
+		<form action="publishBook" method="post" id="addbook" hidden=true>
+			<input type="hidden" name="userid" value="<%=userid %>">
+			类型：<select name="category" style="width:170px">
+				<option value="Example">Example</option>
+			</select><br/>
+			书名：<input type="text" name="title" value=""><br/> 
+			作者：<input type="text" name="author" value=""><br/> 
+			出版社：<input type="text" name="publisher" value=""><br/><br/>
+			描述：<textarea name="description" rows="5" cols="20"></textarea>
+			<br/>
+			<input type="submit" onclick="remove();" value="添加">
+			<button onclick="remove();return false;">取消</button>
+		</form>
+	</div> 
+	<div id="main">
+		<%@ include file="showBooks.jsp"%>
+	</div> 
+</body> 
 </html>

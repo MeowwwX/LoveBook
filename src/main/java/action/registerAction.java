@@ -31,13 +31,19 @@ public class registerAction extends BaseAction{
 		this.password_rep=password_rep;
 	}
 	public String execute() throws Exception{
-		if(!password.equals(password_rep)) return INPUT;
+		if(!password.equals(password_rep)){
+			String err="两次输入的密码不一致！";
+			request().setAttribute("err",err);
+			return ERROR;
+		}
 		User u=new User(username,password);
 		int uid=userService.addUser(u);
 		if(uid!=0){
 			response().addCookie(userService.newCookie(uid));
 			return SUCCESS;
 		}
+		String err="用户名已存在！";
+		request().setAttribute("err",err);
 		return ERROR;
 	}
 }
