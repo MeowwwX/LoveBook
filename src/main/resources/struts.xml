@@ -19,12 +19,16 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="getData" class="action.getDataAction">
+		<action name="index" class="action.getDataAction">
+			<result name="success">/firstPage.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="search" class="action.getDataAction">
 			<result name="success">/firstPage.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="modifyProfile" class="action.modifyProfileAction">
-			<result name="success">/index.jsp</result>
+			<result name="success">/profile.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="publishBook" class="action.publishBookAction">
@@ -39,12 +43,65 @@
 			<result name="success">/index.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="publish" class="action.getSpecificUserAction">
+			<result name="success">/publish.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 		<action name="getSpecificBook" class="action.getSpecificBookAction">
 			<result name="success">/specificBook.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="getSpecificUser" class="action.getSpecificUserAction">
+		<action name="manageSpecificBook" class="action.getSpecificBookAction">
+			<result name="success">/modBook.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="profile" class="action.getSpecificUserAction">
 			<result name="success">/profile.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="getPublished" class="action.getBooksByOwnerAction">
+			<result name="success">/published.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="getBorrowed" class="action.getBorrowedAction">
+			<result name="success">/borrowed.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="postComment" class="action.postCommentAction">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="deleteComment" class="action.deleteCommentAction">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="getManage" class="action.getManageDataAction">
+			<result name="success">/manageUser.jsp</result>
+			<result name="input">/manageBook.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="manageBook" class="action.getDataAction">
+			<result name="success">/manageBook.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="manageUser" class="action.getDataAction">
+			<result name="success">/manageUser.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="delBook" class="action.delBookAction">
+			<result name="success">/manage.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="modBook" class="action.modBookAction">
+			<result name="success">/manage.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="delUser" class="action.delUserAction">
+			<result name="success">/manage.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="modUser" class="action.modUserAction">
+			<result name="success">/manage.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>

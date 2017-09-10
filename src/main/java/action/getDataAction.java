@@ -10,47 +10,35 @@ public class getDataAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
 	private BookService bookService;
-	private String category;
-	private String title;
-	private String author;
-	private String publisher;
+	private int cate;
+	private int page;
 	public void setUserService(UserService userService){
 		this.userService=userService;
 	}
 	public void setBookService(BookService bookService){
 		this.bookService=bookService;
 	}
-	public String getCategory(){
-		return category;
+	public int getCate(){
+		return cate;
 	}
-	public void setCategory(String category){
-		this.category=category;
+	public void setCate(int cate){
+		this.cate=cate;
 	}
-	public String getTitle(){
-		return title;
+	public int getPage(){
+		return page;
 	}
-	public void setTitle(String title){
-		this.title=title;
-	}
-	public String getAuthor(){
-		return author;
-	}
-	public void setAuthor(String author){
-		this.author=author;
-	}
-	public String getPublisher(){
-		return publisher;
-	}
-	public void setPublisher(String publisher){
-		this.publisher=publisher;
+	public void setPage(int page){
+		this.page=page;
 	}
 	public String execute() throws Exception{
 		List<User> users=userService.getAllUsers();
 		request().setAttribute("users",users);
 		List<Book> books;
-		if(category==null) books=bookService.getAllBooks();
-		else books=bookService.searchBook(bookService.transCategory(category),title,author,publisher);
+		if(cate==0) books=bookService.getAllBooks();
+		else books=bookService.searchBook(cate);
 		request().setAttribute("books",books);
+		request().setAttribute("cate",cate);
+		request().setAttribute("page",page);
 		return SUCCESS;
 	}
 }

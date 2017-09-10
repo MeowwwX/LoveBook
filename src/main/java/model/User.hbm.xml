@@ -26,6 +26,9 @@
 		<property name="bio" type="java.lang.String">
 			<column name="bio" />
 		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" />
+		</property>
 		<property name="isAdmin" type="int">
 			<column name="isadmin" />
 		</property>

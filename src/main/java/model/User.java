@@ -8,6 +8,7 @@ public class User{
 	private String mail;
 	private String phone;
 	private String bio;
+	private String address;
 	private int isAdmin;
 	public User(){};
 	public User(String username,String password){
@@ -53,6 +54,12 @@ public class User{
 	}
 	public void setPhone(String phone){
 		this.phone=phone;
+	}
+	public String getAddress(){
+		return address;
+	}
+	public void setAddress(String address){
+		this.address=address;
 	}
 	public String getBio(){
 		return bio;

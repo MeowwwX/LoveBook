@@ -46,4 +46,24 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao{
 		}
 	}
 	//Category==0 means all categories;
+	
+	public List<Book> getBookByCategory(int category){
+		@SuppressWarnings("unchecked")
+		List<Book> books = (List<Book>) getHibernateTemplate().find(
+				"from Book as b where b.category=?", category);
+		return books;
+	}
+	public List<Book> getBookByOwner(int userid) {
+		@SuppressWarnings("unchecked")
+		List<Book> books = (List<Book>) getHibernateTemplate().find(
+				"from Book as b where b.owner=?", userid);
+		return books;
+	}
+
+	public List<Book> getBookByStatus(int userid) {
+		@SuppressWarnings("unchecked")
+		List<Book> books = (List<Book>) getHibernateTemplate().find(
+				"from Book as b where b.status=?", userid);
+		return books;
+	}
 }

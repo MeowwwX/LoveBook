@@ -10,5 +10,5 @@ public interface UserService{
 	public int loginCheck(String username,String password);
 	public List<User> getAllUsers();
 	public User getUserById(int id);
-	public boolean modifyProfile(int uid,String password,String password_rep,int g,String mail,String phone,String bio);
+	public boolean modifyProfile(int uid,String password,String password_rep,int g,String mail,String phone,String address,String bio);
 }

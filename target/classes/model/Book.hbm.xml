@@ -29,5 +29,8 @@
 		<property name="status" type="int">
 			<column name="status" />
 		</property>
+		<property name="cover" type="java.lang.String">
+			<column name="cover" />
+		</property>
 	</class>
 </hibernate-mapping>

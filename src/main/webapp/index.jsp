@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>网上书店</title>
+<title>
+		爱书图书分享交流平台</title>
 
 <%
-	response.sendRedirect("getData");
+	response.sendRedirect("index");
 %>
 
 </head>

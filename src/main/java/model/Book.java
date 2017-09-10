@@ -9,8 +9,9 @@ public class Book{
 	private String publisher;
 	private String description;
 	private int status;
+	private String cover;
 	public Book(){};
-	public Book(int owner,int category,String title,String author,String publisher,String description){
+	public Book(int owner,int category,String title,String author,String publisher,String description,String cover){
 		this.owner=owner;
 		this.category=category;
 		this.title=title;
@@ -18,6 +19,7 @@ public class Book{
 		this.publisher=publisher;
 		this.description=description;
 		this.status=0;
+		this.cover=cover;
 	}
 	public int getId(){
 		return id;
@@ -67,12 +69,14 @@ public class Book{
 	public void setStatus(int status){
 		this.status=status;
 	}
+	public String getCover(){
+		return cover;
+	}
+	public void setCover(String cover){
+		this.cover=cover;
+	}
 	public String transCategory(){
 		if(category==1) return "Example";
 		return "Unknown";
-	}
-	public String transStatus(){
-		if(status==0) return "未借出";
-		return "已借出";
 	}
 }

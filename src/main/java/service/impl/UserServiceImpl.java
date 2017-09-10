@@ -35,20 +35,17 @@ public class UserServiceImpl implements UserService{
 	public User getUserById(int id){
 		return userDao.getUserById(id);
 	}
-	public boolean modifyProfile(int uid,String password,String password_rep,int g,String mail,String phone,String bio){
+	public boolean modifyProfile(int uid,String password,String password_rep,int g,String mail,String phone,String address,String bio){
 		User u=userDao.getUserById(uid);
-		if(!password.equals("")&&password.equals(password_rep)) u.setPassword(password);
+		if(!password.equals("")){
+			if(password.equals(password_rep)) u.setPassword(password);
+			else return false;
+		}
 		u.setGender(g);
 		u.setMail(mail);
 		u.setPhone(phone);
+		u.setAddress(address);
 		u.setBio(bio);
-		if(!password.equals("")){
-			if(password.equals(password_rep)) u.setPassword(password);
-			else{
-				userDao.update(u);
-				return false;
-			}
-		}
 		userDao.update(u);
 		return true;
 	}

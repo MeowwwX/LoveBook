@@ -1,0 +1,3 @@
+create table users(id int NOT NULL AUTO_INCREMENT,username varchar(20),password varchar(20),gender int,mail varchar(20),phone varchar(20),bio varchar(255),isAdmin int,primary key (id));
+create table books(id int not null auto_increment,owner int,category int,title varchar(255),author varchar(255),publisher varchar(255),description varchar(255),status int,cover varchar(255),primary key(id));
+create table comments(id int not null auto_increment,bookid int,userid int,time timestamp,content varchar(2000),primary key(id));
