@@ -33,7 +33,7 @@
 		<a href="getManage?manage=book">书籍管理</a>
 	</div>
 	<div id="main" style="text-align:center"><br/><br/>
-		<h1 style="width:1820px;margin:0">网上书店-书籍管理</h1><br/>
+		<h1 style="width:1820px;margin:0">爱书平台-书籍管理</h1><br/>
 		<br/><br/><table class="manage" border="0" cellspacing="0" cellpadding="0" style="width:1820px;margin:0;">
 			<tr>
 				<th>id</th><th>书名</th><th>类型</th><th>作者</th><th>出版社</th><th>发布者</th><th>状态</th><th>修改</th><th>删除</th>
@@ -63,7 +63,7 @@
 						}
 					%>借阅<%} %></td>
 					<td><a href="manageSpecificBook?bookid=<%=books.get(i).getId() %>">修改</a></td>
-					<td><a href="delBook?bookid_s=<%=books.get(i).getId() %>">删除</a> 
+					<td><a href="delBook?bookid=<%=books.get(i).getId() %>">删除</a> 
 				</tr>
 			<%}%>
 		</table>

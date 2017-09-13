@@ -23,6 +23,16 @@ public class loginAction extends BaseAction{
 		this.password=password;
 	}
 	public String execute() throws Exception{
+		if(username.equals("")){
+			String err="请输入用户名！";
+			request().setAttribute("err",err);
+			return ERROR;
+		}
+		if(password.equals("")){
+			String err="请输入密码！";
+			request().setAttribute("err",err);
+			return ERROR;
+		}
 		int uid=userService.loginCheck(username,password);
 		if(uid!=0){
 			response().addCookie(userService.newCookie(uid));

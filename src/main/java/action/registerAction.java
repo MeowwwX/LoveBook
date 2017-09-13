@@ -31,6 +31,16 @@ public class registerAction extends BaseAction{
 		this.password_rep=password_rep;
 	}
 	public String execute() throws Exception{
+		if(username.equals("")){
+			String err="请输入用户名！";
+			request().setAttribute("err",err);
+			return ERROR;
+		}
+		if(password.equals("")){
+			String err="请输入密码！";
+			request().setAttribute("err",err);
+			return ERROR;
+		}
 		if(!password.equals(password_rep)){
 			String err="两次输入的密码不一致！";
 			request().setAttribute("err",err);

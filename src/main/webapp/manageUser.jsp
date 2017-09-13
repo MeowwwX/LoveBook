@@ -28,7 +28,7 @@
 		<a href="getManage?manage=book">书籍管理</a>
 	</div> 
 	<div id="main" style="text-align:center"><br/><br/>
-		<h1 style="width:1820px;margin:0">网上书店-用户管理</h1><br/>
+		<h1 style="width:1820px;margin:0">爱书平台-用户管理</h1><br/>
 		<br/><br/><table class="manage" border="0" cellspacing="0" cellpadding="0" style="width:1820px;margin:0;">
 			<tr>
 				<th>id</th><th>用户名</th><th>性别</th><th>电子邮箱</th><th>手机</th><th>权限</th><th>修改</th><th>删除</th>

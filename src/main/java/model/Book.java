@@ -76,7 +76,12 @@ public class Book{
 		this.cover=cover;
 	}
 	public String transCategory(){
-		if(category==1) return "Example";
+		if(category==1) return "经典名著";
+		if(category==2) return "现代小说";
+		if(category==3) return "教材教辅";
+		if(category==4) return "励志读物";
+		if(category==5) return "艺术美术";
+		if(category==6) return "儿童文学";
 		return "Unknown";
 	}
 }

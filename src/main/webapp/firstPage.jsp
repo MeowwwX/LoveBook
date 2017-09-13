@@ -60,8 +60,8 @@
 					用户名：<input type="text" name="username" value="" style="margin-top:2px;"><br/>
 					密码：<input type="password" name="password" style="margin-top:2px;"><br/>
 					<input style="margin-top:2px;" type="submit" value="登录">
-					<button style="margin-top:2px;margin-left:3px" onclick="location.replace("<%=path%>/register.jsp");">注册</button>
-				</form>
+					<button style="margin-top:2px;margin-left:3px" onclick="location.replace('<%=path %>/register.jsp');return false;">注册</button>
+				</form>、
 			<%}%>
 	</div>
 	<nav class="navbar navbar-default row" role="navigation" style="text-align:center;background-color:#99CCFF;border:1px solid #99CCFF">
@@ -81,8 +81,8 @@
 	</nav>
 	<div class="books" style="text-align:center">
 	<%
-		int head=20*pageNumber;
-		int tail=head+20;
+		int head=12*pageNumber;
+		int tail=head+12;
 		if(books.size()<tail) tail=books.size();
 		while(head<tail){
 			if(head%4==0){%><div class="row"><%}%>
@@ -101,7 +101,7 @@
     <%}else{ %>
     	<li class="disabled"><a href="#">&laquo;</a>
     
-	<%}for(int i=0;i<(books.size()+19)/20;i++){
+	<%}for(int i=0;i<(books.size()+11)/12;i++){
 		if(i==pageNumber){%>
 			<li class="active"><a href="#"><%=i+1 %></a></li>
 		<%}else{%>
